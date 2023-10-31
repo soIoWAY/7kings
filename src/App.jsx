@@ -1,9 +1,9 @@
-
+import Header from "./components/header/Header.jsx";
 function App() {
 
   return (
     <>
-      <h1 className='underline'>1</h1>
+      <Header />
     </>
   )
 }
