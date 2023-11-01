@@ -1,8 +1,7 @@
+import styles from './Logo.module.scss'
 const Logo = () => {
     return(
-        <div>
-            <div>7 Kings</div>
-        </div>
+        <div className={styles.logo}><a href="#">7 Kings</a></div>
     )
 }
 

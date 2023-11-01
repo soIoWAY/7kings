@@ -1,5 +1,5 @@
 .header {
-  @apply flex justify-between;
+  @apply flex justify-between w-3/4 m-auto border-b-mainTxtClr border-b-2 p-5 items-center;
 }
 
 /*# sourceMappingURL=Header.module.css.map */
