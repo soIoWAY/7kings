@@ -1,5 +1,5 @@
 .fullStats {
-  @apply flex;
+  @apply flex font-semibold;
 }
 
 /*# sourceMappingURL=FullStats.module.css.map */

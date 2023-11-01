@@ -1,0 +1,19 @@
+.navbar {
+  @apply flex justify-center mt-3;
+  nav {
+    ul {
+      @apply flex;
+
+      li {
+        @apply ml-7 text-lg tracking-widest border-b-2;
+        border-bottom-color: transparent;
+        transition: 0.2s ease-out;
+
+        &:hover {
+          @apply border-b-2 border-b-secondary text-secondary;
+          text-shadow: 1px 1px 20px #ff4300;
+        }
+      }
+    }
+  }
+}

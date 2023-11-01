@@ -1,3 +1,7 @@
 .stats {
-  @apply flex;
+  @apply flex ml-6;
+}
+
+.stats div {
+  @apply ml-2;
 }
