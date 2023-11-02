@@ -1,0 +1,11 @@
+.gamesList {
+  @apply flex justify-between w-2/4 mt-5 text-center;
+}
+.gamesList .category .name {
+  @apply text-xl tracking-wide italic mb-2 text-secondary;
+}
+.gamesList .game {
+  @apply border-2 border-b-mainTxtClr p-20;
+}
+
+/*# sourceMappingURL=GamesList.module.css.map */

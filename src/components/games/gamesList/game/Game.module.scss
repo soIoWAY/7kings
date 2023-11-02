@@ -1,0 +1,7 @@
+.game {
+  @apply border-b-mainTxtClr border-2 p-14 mb-5 text-3xl cursor-pointer rounded-md;
+
+  div {
+    @apply border-t-2 border-b-2 border-secondary p-2;
+  }
+}

@@ -5,8 +5,7 @@
       @apply flex;
 
       li {
-        @apply ml-7 text-lg tracking-widest border-b-2;
-        border-bottom-color: transparent;
+        @apply ml-7 text-lg tracking-widest border-b-2 border-b-mainTxtClr;
         transition: 0.2s ease-out;
 
         &:hover {

@@ -1,0 +1,8 @@
+.welcomeText {
+  @apply text-3xl text-center tracking-wide;
+}
+.welcomeText span {
+  @apply text-secondary underline;
+}
+
+/*# sourceMappingURL=WelcomeText.module.css.map */
