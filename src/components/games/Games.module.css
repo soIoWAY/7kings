@@ -1,0 +1,5 @@
+.games {
+  @apply flex flex-col justify-center items-center mt-12;
+}
+
+/*# sourceMappingURL=Games.module.css.map */

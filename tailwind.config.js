@@ -8,7 +8,7 @@ export default {
     colors: {
       mainClr: '#05011c',
       mainTxtClr: '#ff7f50',
-      secondary: '#f55f31',
+      secondary: '#ea4819',
     },
     extend: {},
   },

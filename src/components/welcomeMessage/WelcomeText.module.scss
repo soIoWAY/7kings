@@ -1,0 +1,7 @@
+.welcomeText {
+  @apply text-3xl text-center tracking-wide;
+
+  span {
+    @apply text-secondary underline;
+  }
+}

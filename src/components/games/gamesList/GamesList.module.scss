@@ -1,0 +1,13 @@
+.gamesList {
+  @apply flex justify-between w-2/4 mt-5 text-center;
+
+  .category {
+    .name {
+      @apply text-xl tracking-wide italic mb-2 text-secondary;
+    }
+  }
+
+  .game {
+    @apply border-2 border-b-mainTxtClr p-20;
+  }
+}
