@@ -1,0 +1,14 @@
+.cherrySlotInterface {
+  @apply border-2 rounded-md max-w-sm m-auto flex justify-around p-16;
+}
+.cherrySlotInterface span {
+  @apply text-7xl border-secondary;
+}
+.cherrySlotInterface span:first-child {
+  @apply border-r-2 border-l-2 p-1;
+}
+.cherrySlotInterface span:last-child {
+  @apply border-r-2 border-l-2;
+}
+
+/*# sourceMappingURL=CherrySlotInterface.module.css.map */

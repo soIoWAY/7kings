@@ -1,16 +1,18 @@
-import Header from "./header/Header.jsx";
-import Navbar from "./navbar/Navbar.jsx";
-import WelcomeMessage from "./welcomeMessage/WelcomeMessage.jsx";
-import Games from "./games/Games.jsx";
+import Main from "./Main.jsx";
+import GamePage from "./games/gamePage/GamePage.jsx";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
 function App() {
 
   return (
-    <div>
-      <Header />
-      <Navbar />
-      <WelcomeMessage />
-      <Games />
-    </div>
+    <Router>
+        <div>
+            <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="/game/:gameId" element={<GamePage />} />
+            </Routes>
+        </div>
+    </Router>
   )
 }
 
