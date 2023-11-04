@@ -1,14 +1,22 @@
-.cherrySlotInterface {
-  @apply border-2 rounded-md max-w-sm m-auto flex justify-around p-16;
+.cherrySlot {
+  @apply flex flex-col justify-center items-center;
 }
-.cherrySlotInterface span {
-  @apply text-7xl border-secondary;
+.cherrySlot .cherrySlotInterface {
+  @apply border-2 rounded-md flex justify-around p-16 max-w-sm;
 }
-.cherrySlotInterface span:first-child {
-  @apply border-r-2 border-l-2 p-1;
+.cherrySlot .cherrySlotInterface span {
+  @apply text-7xl border-secondary block;
+  width: 94px;
 }
-.cherrySlotInterface span:last-child {
-  @apply border-r-2 border-l-2;
+.cherrySlot .btnCont {
+  @apply mt-5;
+}
+.cherrySlot .btnCont button {
+  @apply uppercase tracking-wide text-xl text-secondary border-2 border-mainTxtClr p-2 rounded-md;
+  transition: 0.1s linear;
+}
+.cherrySlot .btnCont button:hover {
+  @apply text-mainTxtClr border-secondary;
 }
 
 /*# sourceMappingURL=CherrySlotInterface.module.css.map */

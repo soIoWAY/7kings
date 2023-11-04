@@ -1,15 +1,32 @@
-.cherrySlotInterface {
-  @apply border-2 rounded-md max-w-sm m-auto flex justify-around p-16;
+.cherrySlot {
+  @apply flex flex-col justify-center items-center;
+  .cherrySlotInterface {
+    @apply border-2 rounded-md flex justify-around p-16 max-w-sm;
 
-  span {
-    @apply text-7xl border-secondary;
+    span {
+      @apply text-7xl border-secondary block;
+      width: 94px;
 
-    &:first-child {
-      @apply border-r-2 border-l-2 p-1;
+      //&:first-child {
+      //  @apply border-r-2 border-l-2 p-1;
+      //}
+      //
+      //&:last-child {
+      //  @apply border-r-2 border-l-2;
+      //}
     }
+  }
 
-    &:last-child {
-      @apply border-r-2 border-l-2;
+  .btnCont {
+    @apply mt-5;
+
+    button {
+      @apply uppercase tracking-wide text-xl text-secondary border-2 border-mainTxtClr p-2 rounded-md;
+      transition: .1s linear;
+
+      &:hover {
+        @apply text-mainTxtClr border-secondary;
+      }
     }
   }
 }
