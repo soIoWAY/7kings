@@ -13,4 +13,10 @@
   text-shadow: 1px 1px 20px #ff4300;
 }
 
+@media screen and (max-width: 425px) {
+  .navbar nav ul li {
+    @apply ml-5 text-base tracking-wide;
+  }
+}
+
 /*# sourceMappingURL=Navbar.module.css.map */

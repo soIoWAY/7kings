@@ -1,3 +1,9 @@
 .fullStats {
   @apply flex font-semibold;
 }
+
+@media screen and (max-width: 425px) {
+  .fullStats {
+    @apply w-full justify-center;
+  }
+}

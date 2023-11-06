@@ -30,3 +30,14 @@
     }
   }
 }
+
+@media screen and (max-width: 425px){
+  .cherrySlot {
+    .cherrySlotInterface {
+      span {
+        @apply text-6xl;
+        width: 80px;
+      }
+    }
+  }
+}

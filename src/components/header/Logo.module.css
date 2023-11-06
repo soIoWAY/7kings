@@ -1,5 +1,11 @@
 .logo {
-  @apply font-bold text-xl tracking-widest italic;
+  @apply block font-bold text-xl tracking-widest italic;
+}
+
+@media screen and (max-width: 425px) {
+  .logo {
+    @apply hidden;
+  }
 }
 
 /*# sourceMappingURL=Logo.module.css.map */
