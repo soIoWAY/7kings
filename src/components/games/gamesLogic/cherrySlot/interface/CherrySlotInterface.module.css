@@ -21,8 +21,8 @@
 
 @media screen and (max-width: 425px) {
   .cherrySlot .cherrySlotInterface span {
-    @apply text-6xl;
-    width: 80px;
+    @apply text-5xl;
+    width: 70px;
   }
 }
 
