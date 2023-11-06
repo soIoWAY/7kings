@@ -2,6 +2,7 @@ import styles from './CherrySlotInterface.module.scss'
 import {useEffect, useState} from "react";
 // import {checker} from "./checker.js";
 import {useActions} from "../../../../../hooks/useActions.js";
+import Controls from "../../../controls/Controls.jsx";
 
 const CherrySlotInterface = () => {
 
@@ -92,6 +93,7 @@ const CherrySlotInterface = () => {
                     Start
                 </button>
             </div>
+            <Controls />
         </div>
     )
 }

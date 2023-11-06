@@ -1,0 +1,11 @@
+.controls button {
+  @apply text-secondary text-center bg-mainClr border-2 border-mainTxtClr rounded-md px-1.5 ml-1 font-medium mt-2;
+}
+.controls .userBet {
+  @apply bg-mainClr border-2 border-mainTxtClr text-center outline-0 rounded-md text-secondary w-24 caret-mainClr font-medium py-1;
+}
+.controls .userBet::placeholder {
+  @apply text-secondary text-center opacity-75;
+}
+
+/*# sourceMappingURL=Controls.module.css.map */
