@@ -5,4 +5,10 @@
   @apply text-secondary underline;
 }
 
+@media screen and (max-width: 425px) {
+  .welcomeText {
+    @apply text-2xl;
+  }
+}
+
 /*# sourceMappingURL=WelcomeText.module.css.map */

@@ -2,4 +2,10 @@
   @apply text-mainTxtClr text-4xl tracking-widest;
 }
 
+@media screen and (max-width: 425px) {
+  .gamesText {
+    @apply text-3xl tracking-wide;
+  }
+}
+
 /*# sourceMappingURL=GamesText.module.css.map */

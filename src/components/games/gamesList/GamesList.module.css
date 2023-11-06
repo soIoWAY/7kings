@@ -8,4 +8,10 @@
   @apply border-2 border-b-mainTxtClr p-20;
 }
 
+@media screen and (max-width: 425px) {
+  .gamesList {
+    @apply flex-col w-3/4;
+  }
+}
+
 /*# sourceMappingURL=GamesList.module.css.map */
