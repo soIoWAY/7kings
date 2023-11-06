@@ -1,3 +1,5 @@
+
+
 export const checker = (isGameStarted, fruits) => {
     if (isGameStarted) {
         if (fruits.every(fruit => fruit === '🍒')) {

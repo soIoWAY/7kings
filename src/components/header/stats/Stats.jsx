@@ -1,12 +1,14 @@
 import styles from './Stats.module.scss'
+import {useSelector} from "react-redux";
 const Stats = () => {
+    const {stats} = useSelector(state => state)
     return(
         <div className={styles.stats}>
             <div>
-                <span>W: 0</span>
+                <span>W: {stats.wins}</span>
             </div>
             <div>
-                <span>L: 0</span>
+                <span>L: {stats.loses}</span>
             </div>
         </div>
     )
