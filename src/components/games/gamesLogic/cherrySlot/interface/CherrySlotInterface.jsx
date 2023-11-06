@@ -3,12 +3,15 @@ import {useEffect, useState} from "react";
 // import {checker} from "./checker.js";
 import {useActions} from "../../../../../hooks/useActions.js";
 import Controls from "../../../controls/Controls.jsx";
+import {useSelector} from "react-redux";
 
 const CherrySlotInterface = () => {
 
-    const { updateWins, updateLoses } = useActions();
+    const { updateWins, updateLoses, updateBalance, cashOutBalance } = useActions();
 
-    const fruits = ['🍒','🍇', '🍋', '🍏', '💣', '💰'];
+    const {balance} = useSelector(state => state)
+
+    const fruits = ['🍒', '🍇', '🍋', '🍏', '💰', '💣'];
 
     const randomFruit = () => {
         return Math.floor(Math.random() * fruits.length)
@@ -20,62 +23,88 @@ const CherrySlotInterface = () => {
 
     const [isGameStarted, setIsGameStarted] = useState(false)
 
-    const updateFruits = () => {
-        setFruit1(fruits[randomFruit()])
-        setFruit2(fruits[randomFruit()])
-        setFruit3(fruits[randomFruit()])
+    const [userBet, setUserBet] = useState(0)
 
-        setIsGameStarted(true)
+    const userBetHandler = (bet) => {
+        setUserBet(parseInt(bet))
+    }
+
+    const updateFruits = () => {
+        if ((balance.balance - userBet) >= 0) {
+            setFruit1(fruits[randomFruit()])
+            setFruit2(fruits[randomFruit()])
+            setFruit3(fruits[randomFruit()])
+
+            setIsGameStarted(true)
+        } else if (userBet === 0) {
+            alert('Сума ставки не може бути 0')
+        } else {
+            alert('Недостатньо грошей на балансі')
+        }
     }
 
     useEffect(() => {
         const fruits = [fruit1, fruit2, fruit3]
         // checker(isGameStarted, fruits)
         if (isGameStarted) {
+            setIsGameStarted(false)
+            cashOutBalance(userBet)
+
             if (fruits.every(fruit => fruit === '🍒')) {
                 console.log('x30')
+                updateBalance(userBet * 30)
                 updateWins()
             } else if ((fruits[0] === '🍒' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍒' && fruits[2] === fruits[1])) {
                 console.log('x6')
+                updateBalance(userBet * 6)
                 updateWins()
             } else if ((fruits[0] === '🍒' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍒' && fruits[2] === fruits[1])) {
                 console.log('x0')
                 updateLoses()
             } else if (fruits.every(fruit => fruit === '🍇')) {
                 console.log('x20')
+                updateBalance(userBet * 20)
                 updateWins()
             } else if ((fruits[0] === '🍇' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍇' && fruits[2] === fruits[1])) {
                 console.log('x4')
+                updateBalance(userBet * 4)
                 updateWins()
             } else if ((fruits[0] === '🍇' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍇' && fruits[2] === fruits[1])) {
                 console.log('x0')
                 updateLoses()
             } else if (fruits.every(fruit => fruit === '🍋')) {
                 console.log('x20')
+                updateBalance(userBet * 20)
                 updateWins()
             } else if ((fruits[0] === '🍋' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍋' && fruits[2] === fruits[1])) {
                 console.log('x4')
+                updateBalance(userBet * 4)
                 updateWins()
             } else if ((fruits[0] === '🍋' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍋' && fruits[2] === fruits[1])) {
                 console.log('x0')
                 updateLoses()
             } else if (fruits.every(fruit => fruit === '🍏')) {
                 console.log('x10')
+                updateBalance(userBet * 10)
                 updateWins()
             } else if ((fruits[0] === '🍏' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍏' && fruits[2] === fruits[1])) {
                 console.log('x3')
+                updateBalance(userBet * 3)
                 updateWins()
             } else if ((fruits[0] === '🍏' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍏' && fruits[2] === fruits[1])) {
                 console.log('x0')
                 updateLoses()
             } else if (fruits.every(fruit => fruit === '💰')) {
                 console.log('x5')
+                updateBalance(userBet * 5)
                 updateWins()
             } else if (fruits.every(fruit => fruit !== '💣' && fruit !== '💰') && (fruits[0] === fruits[1] || fruits[1] === fruits[2])) {
                 console.log('x2')
+                updateBalance(userBet * 2)
                 updateWins()
             } else {
                 updateLoses()
+                console.log(userBet)
             }
         }
     }, [isGameStarted, fruit1, fruit2, fruit3]);
@@ -93,7 +122,7 @@ const CherrySlotInterface = () => {
                     Start
                 </button>
             </div>
-            <Controls />
+            <Controls userBetHandler={userBetHandler}/>
         </div>
     )
 }

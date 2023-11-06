@@ -1,10 +1,12 @@
 import {useDispatch} from "react-redux";
 import {useMemo} from "react";
 import {bindActionCreators} from "@reduxjs/toolkit";
-import {actions} from "../store/stats/stats.slice.js";
+import {actions as statsActions} from "../store/stats/stats.slice.js";
+import {actions as balanceActions} from '../store/balance/balance.slice.js'
 
 const rootActions = {
-    ...actions,
+    ...statsActions,
+    ...balanceActions,
 }
 
 export const useActions = () => {

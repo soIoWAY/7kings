@@ -1,27 +1,32 @@
+/* eslint-disable react/prop-types */
 import {useState} from "react";
 import styles from './Controls.module.scss'
 
-const Controls = () => {
-    const [userBet, setUsetBet] = useState(0)
+const Controls = (props) => {
+    const [userBet, setUserBet] = useState(0)
 
     const userBetHandler = (event) => {
         const value = event.target.value
-        setUsetBet(value)
+        setUserBet(value)
+        props.userBetHandler(value)
     }
 
     const multipHandler = () => {
         const value = userBet * 2
-        setUsetBet(value)
+        setUserBet(value)
+        props.userBetHandler(value)
     }
 
     const halfHandler = () => {
         const value = userBet / 2
-        setUsetBet(value)
+        setUserBet(value)
+        props.userBetHandler(value)
     }
 
     const uniHandler = (event) => {
         const valueInt = parseInt(event.target.value)
-        setUsetBet(valueInt)
+        setUserBet(valueInt)
+        props.userBetHandler(valueInt)
     }
 
     return (
