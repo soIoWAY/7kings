@@ -1,5 +1,6 @@
 import styles from './CherrySlotInterface.module.scss'
 import {useEffect, useState} from "react";
+import {checker} from "./checker.js";
 const CherrySlotInterface = () => {
     const fruits = ['🍒','🍇', '🍋', '🍏', '💣', '💰'];
 
@@ -22,38 +23,8 @@ const CherrySlotInterface = () => {
     }
 
     useEffect(() => {
-        const arr = [fruit1, fruit2, fruit3]
-        if (isGameStarted) {
-            if (fruit1 === '🍒' && fruit2 === '🍒' && fruit3 === '🍒') {
-                console.log('x30')
-            } else if ((fruit1 === '🍒' && fruit2 === '🍒' && fruit3 === '💰') || (fruit1 === '💰' && fruit2 === '🍒' && fruit3 === '🍒')) {
-                console.log('x6')
-            } else if ((fruit1 === '🍒' && fruit2 === '🍒' && fruit3 === '💣') || (fruit1 === '💣' && fruit2 === '🍒' && fruit3 === '🍒')) {
-                console.log('x0')
-            } else if (fruit1 === '🍇' && fruit2 === '🍇' && fruit3 === '🍇') {
-                console.log('x20')
-            } else if ((fruit1 === '🍇' && fruit2 === '🍇' && fruit3 === '💰') || (fruit1 === '💰' && fruit2 === '🍇' && fruit3 === '🍇')) {
-                console.log('x4')
-            } else if ((fruit1 === '🍇' && fruit2 === '🍇' && fruit3 === '💣') || (fruit1 === '💣' && fruit2 === '🍇' && fruit3 === '🍇')) {
-                console.log('x0')
-            } else if (fruit1 === '🍋' && fruit2 === '🍋' && fruit3 === '🍋') {
-                console.log('x20')
-            } else if ((fruit1 === '🍋' && fruit2 === '🍋' && fruit3 === '💰') || (fruit1 === '💰' && fruit2 === '🍋' && fruit3 === '🍋')) {
-                console.log('x4')
-            } else if ((fruit1 === '🍋' && fruit2 === '🍋' && fruit3 === '💣') || (fruit1 === '💣' && fruit2 === '🍋' && fruit3 === '🍋')) {
-                console.log('x0')
-            } else if (fruit1 === '🍏' && fruit2 === '🍏' && fruit3 === '🍏') {
-                console.log('x10')
-            } else if ((fruit1 === '🍏' && fruit2 === '🍏' && fruit3 === '💰') || (fruit1 === '💰' && fruit2 === '🍏' && fruit3 === '🍏')) {
-                console.log('x3')
-            } else if ((fruit1 === '🍏' && fruit2 === '🍏' && fruit3 === '💣') || (fruit1 === '💣' && fruit2 === '🍏' && fruit3 === '🍏')) {
-                console.log('x0')
-            } else if (fruit1 === '💰' && fruit2 === '💰' && fruit3 === '💰') {
-                console.log('x5')
-            } else if (arr.every(fruit => fruit !== '💣' && fruit !== '💰') && (fruit1 === fruit2 || fruit2 === fruit3)) {
-                console.log('x2')
-            }
-        }
+        const fruits = [fruit1, fruit2, fruit3]
+        checker(isGameStarted, fruits)
     }, [isGameStarted, fruit1, fruit2, fruit3]);
 
 
