@@ -17,6 +17,7 @@ export default {
         blinkWinLemonAnim: 'blinkWinLemonAnim .6s infinite',
         blinkWinAppleAnim: 'blinkWinAppleAnim .6s infinite',
         blinkWinBagAnim: 'blinkWinBagAnim .6s infinite',
+        blinkWinAnim: 'blinkWinAnim .6s infinite',
       },
       keyframes: {
         blinkWinCherryAnim: {
@@ -38,6 +39,10 @@ export default {
         blinkWinBagAnim: {
           '0%, 100%': { textShadow: '1px 1px 20px #ffb900' },
           '50%': { textShadow: '1px 1px 10px #ffb900' },
+        },
+        blinkWinAnim: {
+          '0%, 100%': { textShadow: '1px 1px 20px #ea4819' },
+          '50%': { textShadow: '1px 1px 10px #ea4819' },
         }
       }
     },
