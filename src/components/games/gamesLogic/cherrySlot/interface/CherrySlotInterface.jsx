@@ -18,10 +18,10 @@ const CherrySlotInterface = () => {
     }
 
     const [fruit1, setFruit1] = useState('🍒');
-    const [fruit2, setFruit2] = useState('🍋');
-    const [fruit3, setFruit3] = useState('🍇');
+    const [fruit2, setFruit2] = useState('🍒');
+    const [fruit3, setFruit3] = useState('🍒');
 
-    const [isGameStarted, setIsGameStarted] = useState(true)
+    const [isGameStarted, setIsGameStarted] = useState(false)
 
     const [userBet, setUserBet] = useState(0)
 
