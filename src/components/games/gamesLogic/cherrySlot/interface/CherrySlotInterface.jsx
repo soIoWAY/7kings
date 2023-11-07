@@ -11,7 +11,7 @@ const CherrySlotInterface = () => {
 
     const {balance} = useSelector(state => state)
 
-    const fruits = ['🍒', '🍇', '🍋', '🍏', '💰', '💣'];
+    const fruits = ['💰', '🍋', '🍏', '🍒', '🍇', '💣']; //, '🍋', '🍏', '💰', '💣', '🍒' 🍇
 
     const randomFruit = () => {
         return Math.floor(Math.random() * fruits.length)
@@ -43,15 +43,28 @@ const CherrySlotInterface = () => {
         }
     }
 
+    const updateAnim = (spans, anim) => {
+        spans.forEach((e) => {
+            if (e) {
+                e.classList.add(anim)
+            }
+        })
+    }
+
     useEffect(() => {
         const fruits = [fruit1, fruit2, fruit3]
+
+        const spans = document.getElementsByClassName('cherrySpan')
+        const spansArray = Array.from(spans)
         // checker(isGameStarted, fruits)
+
         if (isGameStarted) {
             setIsGameStarted(false)
             cashOutBalance(userBet)
 
             if (fruits.every(fruit => fruit === '🍒')) {
-                console.log('x30')
+                const anim = 'animate-blinkWinCherryAnim'
+                updateAnim(spansArray, anim)
                 updateBalance(userBet * 30)
                 updateWins()
             } else if ((fruits[0] === '🍒' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍒' && fruits[2] === fruits[1])) {
@@ -62,7 +75,8 @@ const CherrySlotInterface = () => {
                 console.log('x0')
                 updateLoses()
             } else if (fruits.every(fruit => fruit === '🍇')) {
-                console.log('x20')
+                const anim = 'animate-blinkWinGrapeAnim'
+                updateAnim(spansArray, anim)
                 updateBalance(userBet * 20)
                 updateWins()
             } else if ((fruits[0] === '🍇' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍇' && fruits[2] === fruits[1])) {
@@ -73,7 +87,8 @@ const CherrySlotInterface = () => {
                 console.log('x0')
                 updateLoses()
             } else if (fruits.every(fruit => fruit === '🍋')) {
-                console.log('x20')
+                const anim = 'animate-blinkWinLemonAnim'
+                updateAnim(spansArray, anim)
                 updateBalance(userBet * 20)
                 updateWins()
             } else if ((fruits[0] === '🍋' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍋' && fruits[2] === fruits[1])) {
@@ -84,7 +99,8 @@ const CherrySlotInterface = () => {
                 console.log('x0')
                 updateLoses()
             } else if (fruits.every(fruit => fruit === '🍏')) {
-                console.log('x10')
+                const anim = 'animate-blinkWinLemonAnim'
+                updateAnim(spansArray, anim)
                 updateBalance(userBet * 10)
                 updateWins()
             } else if ((fruits[0] === '🍏' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍏' && fruits[2] === fruits[1])) {
@@ -95,7 +111,8 @@ const CherrySlotInterface = () => {
                 console.log('x0')
                 updateLoses()
             } else if (fruits.every(fruit => fruit === '💰')) {
-                console.log('x5')
+                const anim = 'animate-blinkWinBagAnim'
+                updateAnim(spansArray, anim)
                 updateBalance(userBet * 5)
                 updateWins()
             } else if (fruits.every(fruit => fruit !== '💣' && fruit !== '💰') && (fruits[0] === fruits[1] || fruits[1] === fruits[2])) {
@@ -113,9 +130,9 @@ const CherrySlotInterface = () => {
     return(
         <div className={styles.cherrySlot}>
             <div className={styles.cherrySlotInterface}>
-                <span>{fruit1}</span>
-                <span>{fruit2}</span>
-                <span>{fruit3}</span>
+                <span className='cherrySpan'>{fruit1}</span>
+                <span className='cherrySpan'>{fruit2}</span>
+                <span className='cherrySpan'>{fruit3}</span>
             </div>
             <div className={styles.btnCont}>
                 <button onClick={updateFruits}>

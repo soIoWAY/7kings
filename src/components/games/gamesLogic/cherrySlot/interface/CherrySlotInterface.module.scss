@@ -4,16 +4,8 @@
     @apply border-2 rounded-md flex justify-around p-16 max-w-sm;
 
     span {
-      @apply text-7xl border-secondary block;
+      @apply text-7xl border-secondary block border-t-2 border-b-2 py-5 p-1;
       width: 94px;
-
-      //&:first-child {
-      //  @apply border-r-2 border-l-2 p-1;
-      //}
-      //
-      //&:last-child {
-      //  @apply border-r-2 border-l-2;
-      //}
     }
   }
 

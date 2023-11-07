@@ -5,7 +5,7 @@
   @apply border-2 rounded-md flex justify-around p-16 max-w-sm;
 }
 .cherrySlot .cherrySlotInterface span {
-  @apply text-7xl border-secondary block;
+  @apply text-7xl border-secondary block border-t-2 border-b-2 py-5 p-1;
   width: 94px;
 }
 .cherrySlot .btnCont {
