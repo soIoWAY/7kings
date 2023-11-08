@@ -10,6 +10,8 @@ import magicalwin from '../../../../../assets/sounds/magicalwin.mp3'
 import payotaward from '../../../../../assets/sounds/payoutaward.mp3'
 import mixkitaward from '../../../../../assets/sounds/mixkitaward.mp3'
 
+import { checker } from "./checker.js";
+
 const CherrySlotInterface = () => {
 
     const { updateWins, updateLoses, updateBalance, cashOutBalance } = useActions();
@@ -84,96 +86,10 @@ const CherrySlotInterface = () => {
         // checker(isGameStarted, fruits)
 
         if (isGameStarted) {
-            const winAnim = 'animate-blinkWinAnim'
+            // const winAnim = 'animate-blinkWinAnim'
             setIsGameStarted(false)
             cashOutBalance(userBet)
-
-            if (fruits.every(fruit => fruit === '🍒')) {
-                const anim = 'animate-blinkWinCherryAnim'
-                setDisabled(true)
-                payotAward()
-                updateAnim(spansArray, anim)
-                updateBalance(userBet * 30)
-                updateWins()
-                delayAnim(spansArray, anim, 2500)
-            } else if ((fruits[0] === '🍒' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍒' && fruits[2] === fruits[1])) {
-                setDisabled(true)
-                mixkitAward()
-                updateAnim(spansArray, winAnim)
-                updateBalance(userBet * 6)
-                updateWins()
-                delayAnim(spansArray, winAnim, 1500)
-            } else if ((fruits[0] === '🍒' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍒' && fruits[2] === fruits[1])) {
-                updateLoses()
-            } else if (fruits.every(fruit => fruit === '🍇')) {
-                const anim = 'animate-blinkWinGrapeAnim'
-                setDisabled(true)
-                payotAward()
-                updateAnim(spansArray, anim)
-                updateBalance(userBet * 20)
-                updateWins()
-                delayAnim(spansArray, anim, 2500)
-            } else if ((fruits[0] === '🍇' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍇' && fruits[2] === fruits[1])) {
-                setDisabled(true)
-                mixkitAward()
-                updateAnim(spansArray, winAnim)
-                updateBalance(userBet * 4)
-                updateWins()
-                delayAnim(spansArray, winAnim, 1500)
-            } else if ((fruits[0] === '🍇' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍇' && fruits[2] === fruits[1])) {
-                updateLoses()
-            } else if (fruits.every(fruit => fruit === '🍋')) {
-                const anim = 'animate-blinkWinLemonAnim'
-                setDisabled(true)
-                payotAward()
-                updateAnim(spansArray, anim)
-                updateBalance(userBet * 20)
-                updateWins()
-                delayAnim(spansArray, anim, 2500)
-            } else if ((fruits[0] === '🍋' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍋' && fruits[2] === fruits[1])) {
-                setDisabled(true)
-                mixkitAward()
-                updateAnim(spansArray, winAnim)
-                updateBalance(userBet * 4)
-                updateWins()
-                delayAnim(spansArray, winAnim, 1000)
-            } else if ((fruits[0] === '🍋' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍋' && fruits[2] === fruits[1])) {
-                updateLoses()
-            } else if (fruits.every(fruit => fruit === '🍏')) {
-                setDisabled(true)
-                payotAward()
-                const anim = 'animate-blinkWinLemonAnim'
-                updateAnim(spansArray, anim)
-                updateBalance(userBet * 10)
-                updateWins()
-                delayAnim(spansArray, anim, 2500)
-            } else if ((fruits[0] === '🍏' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍏' && fruits[2] === fruits[1])) {
-                setDisabled(true)
-                mixkitAward()
-                updateAnim(spansArray, winAnim)
-                updateBalance(userBet * 3)
-                updateWins()
-                delayAnim(spansArray, winAnim, 1500)
-            } else if ((fruits[0] === '🍏' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍏' && fruits[2] === fruits[1])) {
-                updateLoses()
-            } else if (fruits.every(fruit => fruit === '💰')) {
-                setDisabled(true)
-                mixkitAward()
-                const anim = 'animate-blinkWinBagAnim'
-                updateAnim(spansArray, anim)
-                updateBalance(userBet * 5)
-                updateWins()
-                delayAnim(spansArray, anim, 2500)
-            } else if (fruits.every(fruit => fruit !== '💣' && fruit !== '💰') && (fruits[0] === fruits[1] || fruits[1] === fruits[2])) {
-                setDisabled(true)
-                magicalWin()
-                updateAnim(spansArray, winAnim)
-                updateBalance(userBet * 2)
-                updateWins()
-                delayAnim(spansArray, winAnim, 1000)
-            } else {
-                updateLoses()
-            }
+            checker(fruits, userBet, spansArray, setDisabled, updateBalance, updateWins, updateLoses, updateAnim, delayAnim, mixkitAward, payotAward, magicalWin)
         }
     }, [isGameStarted, fruit1, fruit2, fruit3]);
 
