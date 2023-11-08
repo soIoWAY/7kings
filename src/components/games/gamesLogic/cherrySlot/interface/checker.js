@@ -12,13 +12,13 @@ export function checker(fruits, userBet, spansArray, setDisabled, updateBalance,
     } else if (fruits.every(fruit => fruit === '🍇')) {
         wineWinHandler(setDisabled, payotAward, userBet, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
     } else if ((fruits[0] === '🍇' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍇' && fruits[2] === fruits[1])) {
-        wineBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
+        wineAndLemonBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
     } else if ((fruits[0] === '🍇' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍇' && fruits[2] === fruits[1])) {
         updateLoses()
     } else if (fruits.every(fruit => fruit === '🍋')) {
         lemonWinHandler(setDisabled, payotAward, userBet, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
     } else if ((fruits[0] === '🍋' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍋' && fruits[2] === fruits[1])) {
-        lemonBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
+        wineAndLemonBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
     } else if ((fruits[0] === '🍋' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍋' && fruits[2] === fruits[1])) {
         updateLoses()
     } else if (fruits.every(fruit => fruit === '🍏')) {
@@ -74,27 +74,8 @@ function appleWinHandler(setDisabled, payotAward, userBet, spansArray, updateAni
     delayAnim(spansArray, anim, 2500)
 }
 
-function lemonBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim) {
-    setDisabled(true)
-    mixkitAward()
-    updateAnim(spansArray, winAnim)
-    updateBalance(userBet * 4)
-    updateWins()
-    delayAnim(spansArray, winAnim, 1500)
-}
 
-function lemonWinHandler(setDisabled, payotAward, userBet, spansArray, updateAnim, updateBalance, updateWins, delayAnim) {
-    const anim = 'animate-blinkWinLemonAnim'
-    setDisabled(true)
-    payotAward()
-    updateAnim(spansArray, anim)
-    updateBalance(userBet * 20)
-    updateWins()
-    delayAnim(spansArray, anim, 2500)
-}
-
-
-function wineBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim) {
+function wineAndLemonBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim) {
     setDisabled(true)
     mixkitAward()
     updateAnim(spansArray, winAnim)
@@ -124,6 +105,16 @@ function cherryWinHandler(setDisabled, payotAward, userBet, spansArray, updateAn
 
 function wineWinHandler(setDisabled, payotAward, userBet, spansArray, updateAnim, updateBalance, updateWins, delayAnim) {
     const anim = 'animate-blinkWinGrapeAnim'
+    setDisabled(true)
+    payotAward()
+    updateAnim(spansArray, anim)
+    updateBalance(userBet * 20)
+    updateWins()
+    delayAnim(spansArray, anim, 2500)
+}
+
+function lemonWinHandler(setDisabled, payotAward, userBet, spansArray, updateAnim, updateBalance, updateWins, delayAnim) {
+    const anim = 'animate-blinkWinLemonAnim'
     setDisabled(true)
     payotAward()
     updateAnim(spansArray, anim)
