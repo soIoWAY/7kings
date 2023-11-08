@@ -30,16 +30,16 @@ export function checker(fruits, userBet, spansArray, setDisabled, updateBalance,
     } else if (fruits.every(fruit => fruit === '💰')) {
         bagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
     } else if (fruits.every(fruit => fruit !== '💣' && fruit !== '💰') && (fruits[0] === fruits[1] || fruits[1] === fruits[2])) {
-        fruitWinHandler(setDisabled, spansArray, userBet, magicalWin, updateBalance, updateWins, delayAnim)
+        fruitWinHandler(setDisabled, spansArray, updateAnim, userBet, magicalWin, updateBalance, updateWins, delayAnim)
     }  else {
         updateLoses()
     }
 }
 
-function fruitWinHandler(setDisabled, spansArray, userBet, magicalWin, updateBalance, updateWins, delayAnim) {
+function fruitWinHandler(setDisabled, spansArray, updateAnim, userBet, magicalWin, updateBalance, updateWins, delayAnim) {
     setDisabled(true)
     magicalWin()
-    updateWins(spansArray, winAnim)
+    updateAnim(spansArray, winAnim)
     updateBalance(userBet * 2)
     updateWins()
     delayAnim(spansArray, winAnim, 1000)
