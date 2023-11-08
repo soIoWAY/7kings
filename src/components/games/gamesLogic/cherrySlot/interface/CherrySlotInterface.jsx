@@ -5,6 +5,11 @@ import {useActions} from "../../../../../hooks/useActions.js";
 import Controls from "../../../controls/Controls.jsx";
 import {useSelector} from "react-redux";
 
+import useSound from "use-sound";
+import magicalwin from '../../../../../assets/sounds/magicalwin.mp3'
+import payotaward from '../../../../../assets/sounds/payoutaward.mp3'
+import mixkitaward from '../../../../../assets/sounds/mixkitaward.mp3'
+
 const CherrySlotInterface = () => {
 
     const { updateWins, updateLoses, updateBalance, cashOutBalance } = useActions();
@@ -12,6 +17,11 @@ const CherrySlotInterface = () => {
     const {balance} = useSelector(state => state)
 
     const fruits = ['💰', '🍒', '🍋', '🍏', '💣', '🍇']; //, '🍋', '🍏', '💰', '💣', '🍒' 🍇
+
+    const [magicalWin] = useSound(magicalwin)
+    const [payotAward] = useSound(payotaward)
+    const [mixkitAward] = useSound(mixkitaward)
+
 
     const randomFruit = () => {
         return Math.floor(Math.random() * fruits.length)
@@ -81,12 +91,14 @@ const CherrySlotInterface = () => {
             if (fruits.every(fruit => fruit === '🍒')) {
                 const anim = 'animate-blinkWinCherryAnim'
                 setDisabled(true)
+                payotAward()
                 updateAnim(spansArray, anim)
                 updateBalance(userBet * 30)
                 updateWins()
                 delayAnim(spansArray, anim, 2500)
             } else if ((fruits[0] === '🍒' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍒' && fruits[2] === fruits[1])) {
                 setDisabled(true)
+                mixkitAward()
                 updateAnim(spansArray, winAnim)
                 updateBalance(userBet * 6)
                 updateWins()
@@ -96,12 +108,14 @@ const CherrySlotInterface = () => {
             } else if (fruits.every(fruit => fruit === '🍇')) {
                 const anim = 'animate-blinkWinGrapeAnim'
                 setDisabled(true)
+                payotAward()
                 updateAnim(spansArray, anim)
                 updateBalance(userBet * 20)
                 updateWins()
                 delayAnim(spansArray, anim, 2500)
             } else if ((fruits[0] === '🍇' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍇' && fruits[2] === fruits[1])) {
                 setDisabled(true)
+                mixkitAward()
                 updateAnim(spansArray, winAnim)
                 updateBalance(userBet * 4)
                 updateWins()
@@ -111,12 +125,14 @@ const CherrySlotInterface = () => {
             } else if (fruits.every(fruit => fruit === '🍋')) {
                 const anim = 'animate-blinkWinLemonAnim'
                 setDisabled(true)
+                payotAward()
                 updateAnim(spansArray, anim)
                 updateBalance(userBet * 20)
                 updateWins()
                 delayAnim(spansArray, anim, 2500)
             } else if ((fruits[0] === '🍋' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍋' && fruits[2] === fruits[1])) {
                 setDisabled(true)
+                mixkitAward()
                 updateAnim(spansArray, winAnim)
                 updateBalance(userBet * 4)
                 updateWins()
@@ -125,6 +141,7 @@ const CherrySlotInterface = () => {
                 updateLoses()
             } else if (fruits.every(fruit => fruit === '🍏')) {
                 setDisabled(true)
+                payotAward()
                 const anim = 'animate-blinkWinLemonAnim'
                 updateAnim(spansArray, anim)
                 updateBalance(userBet * 10)
@@ -132,6 +149,7 @@ const CherrySlotInterface = () => {
                 delayAnim(spansArray, anim, 2500)
             } else if ((fruits[0] === '🍏' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍏' && fruits[2] === fruits[1])) {
                 setDisabled(true)
+                mixkitAward()
                 updateAnim(spansArray, winAnim)
                 updateBalance(userBet * 3)
                 updateWins()
@@ -140,6 +158,7 @@ const CherrySlotInterface = () => {
                 updateLoses()
             } else if (fruits.every(fruit => fruit === '💰')) {
                 setDisabled(true)
+                mixkitAward()
                 const anim = 'animate-blinkWinBagAnim'
                 updateAnim(spansArray, anim)
                 updateBalance(userBet * 5)
@@ -147,6 +166,7 @@ const CherrySlotInterface = () => {
                 delayAnim(spansArray, anim, 2500)
             } else if (fruits.every(fruit => fruit !== '💣' && fruit !== '💰') && (fruits[0] === fruits[1] || fruits[1] === fruits[2])) {
                 setDisabled(true)
+                magicalWin()
                 updateAnim(spansArray, winAnim)
                 updateBalance(userBet * 2)
                 updateWins()
