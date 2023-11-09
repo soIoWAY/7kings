@@ -1,6 +1,5 @@
 import styles from './CherrySlotInterface.module.scss'
 import {useEffect, useState} from "react";
-// import {checker} from "./checker.js";
 import {useActions} from "../../../../../hooks/useActions.js";
 import Controls from "../../../controls/Controls.jsx";
 import {useSelector} from "react-redux";
@@ -18,7 +17,7 @@ const CherrySlotInterface = () => {
 
     const {balance} = useSelector(state => state)
 
-    const fruits = ['💰', '🍒', '🍋', '🍏', '💣', '🍇']; //, '🍋', '🍏', '💰', '💣', '🍒' 🍇
+    const fruits = ['🍒']; // '💰', '🍒', '🍋', '🍏', '💣', '🍇'
 
     const [magicalWin] = useSound(magicalwin)
     const [payotAward] = useSound(payotaward)
@@ -83,10 +82,8 @@ const CherrySlotInterface = () => {
 
         const spans = document.getElementsByClassName('cherrySpan')
         const spansArray = Array.from(spans)
-        // checker(isGameStarted, fruits)
 
         if (isGameStarted) {
-            // const winAnim = 'animate-blinkWinAnim'
             setIsGameStarted(false)
             cashOutBalance(userBet)
             checker(fruits, userBet, spansArray, setDisabled, updateBalance, updateWins, updateLoses, updateAnim, delayAnim, mixkitAward, payotAward, magicalWin)
