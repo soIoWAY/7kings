@@ -29,6 +29,11 @@ const Controls = (props) => {
         props.userBetHandler(valueInt)
     }
 
+    const maxHandler = () => {
+        setUserBet(props.balance)
+        props.userBetHandler(props.balance)
+    }
+
     return (
         <div className={styles.controls}>
             <div>
@@ -40,6 +45,7 @@ const Controls = (props) => {
                 <button onClick={multipHandler}>x2</button>
                 <button onClick={halfHandler}>1/2</button>
                 <button onClick={uniHandler} value='0'>0</button>
+                <button onClick={maxHandler} value='max'>max</button>
             </div>
             <div>
                 <button onClick={uniHandler} value='10'>10</button>

@@ -17,7 +17,7 @@ const CherrySlotInterface = () => {
 
     const {balance} = useSelector(state => state)
 
-    const fruits = ['🍒']; // '💰', '🍒', '🍋', '🍏', '💣', '🍇'
+    const fruits = ['💰', '🍒', '🍋', '🍏', '💣', '🍇']; // '💰', '🍒', '🍋', '🍏', '💣', '🍇'
 
     const [magicalWin] = useSound(magicalwin)
     const [payotAward] = useSound(payotaward)
@@ -65,7 +65,6 @@ const CherrySlotInterface = () => {
     }
 
     const delayAnim = (spans, anim, time) => {
-        console.log(spans)
         const timer = setTimeout(() => {
             setDisabled(false)
             spans.forEach((e) => {
@@ -103,7 +102,7 @@ const CherrySlotInterface = () => {
                     Start
                 </button>
             </div>
-            <Controls userBetHandler={userBetHandler}/>
+            <Controls userBetHandler={userBetHandler} balance={balance.balance}/>
         </div>
     )
 }

@@ -6,7 +6,7 @@ const Balance = () => {
     const {updateBalance} = useActions()
 
     const addBalanceHandler = () => {
-        updateBalance(50)
+        updateBalance(100)
     }
     return(
         <div>

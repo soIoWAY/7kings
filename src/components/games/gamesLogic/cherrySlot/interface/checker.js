@@ -2,6 +2,28 @@
 
 const winAnim = 'animate-blinkWinAnim'
 
+const cherryX = 3.3
+const grapeX = 2.8
+const lemonX = 2.4
+const appleX = 2
+const bagX = 2
+
+
+const extraWinCherry = (Math.round(cherryX * cherryX * cherryX)) // 35
+const extraWinGrape = (Math.round(grapeX * grapeX * grapeX)) // 21
+const extraWinLemon = (Math.round(lemonX * lemonX * lemonX)) // 13
+const extraWinApple = (Math.round(appleX * appleX *appleX)) // 8
+
+const bagWin = (bagX * bagX * bagX) // 8
+
+const winCherryBag = (Math.round((cherryX * cherryX) * bagX)) // 21
+const winGrapeBag = (Math.round((grapeX * grapeX) * bagX)) // 15
+const winLemonBag = (Math.round((lemonX * lemonX) * bagX)) // 11
+const winAppleBag = ((appleX * appleX) * bagX) // 8
+
+const winFruit = 2
+
+
 export function checker(fruits, userBet, spansArray, setDisabled, updateBalance, updateWins, updateLoses, updateAnim, delayAnim, mixkitAward, payotAward, magicalWin) {
     if (fruits.every(fruit => fruit === '🍒')) {
         cherryWinHandler(setDisabled, payotAward, userBet, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
@@ -12,13 +34,13 @@ export function checker(fruits, userBet, spansArray, setDisabled, updateBalance,
     } else if (fruits.every(fruit => fruit === '🍇')) {
         wineWinHandler(setDisabled, payotAward, userBet, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
     } else if ((fruits[0] === '🍇' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍇' && fruits[2] === fruits[1])) {
-        wineAndLemonBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
+        grapeBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
     } else if ((fruits[0] === '🍇' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍇' && fruits[2] === fruits[1])) {
         updateLoses()
     } else if (fruits.every(fruit => fruit === '🍋')) {
         lemonWinHandler(setDisabled, payotAward, userBet, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
     } else if ((fruits[0] === '🍋' && fruits[1] === fruits[0] && fruits[2] === '💰') || (fruits[0] === '💰' && fruits[1] === '🍋' && fruits[2] === fruits[1])) {
-        wineAndLemonBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
+        lemonBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim)
     } else if ((fruits[0] === '🍋' && fruits[1] === fruits[0] && fruits[2] === '💣') || (fruits[0] === '💣' && fruits[1] === '🍋' && fruits[2] === fruits[1])) {
         updateLoses()
     } else if (fruits.every(fruit => fruit === '🍏')) {
@@ -40,7 +62,7 @@ function fruitWinHandler(setDisabled, spansArray, updateAnim, userBet, magicalWi
     setDisabled(true)
     magicalWin()
     updateAnim(spansArray, winAnim)
-    updateBalance(userBet * 2)
+    updateBalance(userBet * winFruit)
     updateWins()
     delayAnim(spansArray, winAnim, 1000)
 }
@@ -50,7 +72,7 @@ function bagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim
     setDisabled(true)
     mixkitAward()
     updateAnim(spansArray, anim)
-    updateBalance(userBet * 5)
+    updateBalance(userBet * bagWin)
     updateWins()
     delayAnim(spansArray, anim, 2500)
 }
@@ -59,7 +81,7 @@ function appleBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updat
     setDisabled(true)
     mixkitAward()
     updateAnim(spansArray, winAnim)
-    updateBalance(userBet * 3)
+    updateBalance(userBet * winAppleBag)
     updateWins()
     delayAnim(spansArray, winAnim, 1500)
 }
@@ -69,26 +91,37 @@ function appleWinHandler(setDisabled, payotAward, userBet, spansArray, updateAni
     setDisabled(true)
     payotAward()
     updateAnim(spansArray, anim)
-    updateBalance(userBet * 10)
+    updateBalance(userBet * extraWinApple)
     updateWins()
     delayAnim(spansArray, anim, 2500)
 }
 
 
-function wineAndLemonBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim) {
+function lemonBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim) {
     setDisabled(true)
     mixkitAward()
     updateAnim(spansArray, winAnim)
-    updateBalance(userBet * 4)
+    updateBalance(userBet * winLemonBag)
     updateWins()
     delayAnim(spansArray, winAnim, 1500)
 }
+
+function grapeBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim) {
+    setDisabled(true)
+    mixkitAward()
+    updateAnim(spansArray, winAnim)
+    updateBalance(userBet * winGrapeBag)
+    updateWins()
+    delayAnim(spansArray, winAnim, 1500)
+}
+
+
 
 function cherryBagWinHandler(setDisabled, userBet, mixkitAward, spansArray, updateAnim, updateBalance, updateWins, delayAnim) {
     setDisabled(true)
     mixkitAward()
     updateAnim(spansArray, winAnim)
-    updateBalance(userBet * 6)
+    updateBalance(userBet * winCherryBag)
     updateWins()
     delayAnim(spansArray, winAnim, 1500)
 }
@@ -98,7 +131,7 @@ function cherryWinHandler(setDisabled, payotAward, userBet, spansArray, updateAn
     setDisabled(true)
     payotAward()
     updateAnim(spansArray, anim)
-    updateBalance(userBet * 30) // констансти з кофами
+    updateBalance(userBet * extraWinCherry)
     updateWins()
     delayAnim(spansArray, anim, 2500)
 }
@@ -108,7 +141,7 @@ function wineWinHandler(setDisabled, payotAward, userBet, spansArray, updateAnim
     setDisabled(true)
     payotAward()
     updateAnim(spansArray, anim)
-    updateBalance(userBet * 20)
+    updateBalance(userBet * extraWinGrape)
     updateWins()
     delayAnim(spansArray, anim, 2500)
 }
@@ -118,7 +151,7 @@ function lemonWinHandler(setDisabled, payotAward, userBet, spansArray, updateAni
     setDisabled(true)
     payotAward()
     updateAnim(spansArray, anim)
-    updateBalance(userBet * 20)
+    updateBalance(userBet * extraWinLemon)
     updateWins()
     delayAnim(spansArray, anim, 2500)
 }
