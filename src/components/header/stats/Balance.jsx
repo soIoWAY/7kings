@@ -1,16 +1,25 @@
 import {useSelector} from "react-redux";
-import {useActions} from "../../../hooks/useActions.js";
+// import {useActions} from "../../../hooks/useActions.js";
+import {useState} from "react";
+import ModalBalance from "./ModalBalance.jsx";
 
 const Balance = () => {
-    const {balance} = useSelector(state => state)
-    const {updateBalance} = useActions()
+    const {balance} = useSelector(state => state.balance)
 
-    const addBalanceHandler = () => {
-        updateBalance(100)
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    function openModal() {
+        setIsOpen(true);
     }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
     return(
         <div>
-            <div>Balance: <span>{balance.balance}</span>₴ <span onClick={addBalanceHandler}>+</span></div>
+            <div>Balance: <span>{balance}</span>₴ <span onClick={openModal}>+</span></div>
+            <ModalBalance modalIsOpen={modalIsOpen} closeModal={closeModal}/>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import styles from './Game.module.scss'
 import { Link } from "react-router-dom";
+import React from "react";
 
 const Game = (props) => {
     return(
@@ -21,4 +22,4 @@ const Game = (props) => {
 
 }
 
-export default Game;
+export default React.memo(Game);

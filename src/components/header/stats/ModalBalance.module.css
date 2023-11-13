@@ -1,0 +1,38 @@
+.modal {
+  @apply block fixed z-10 left-0 top-0 w-full h-full text-mainTxtClr;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal .modalContent {
+  @apply bg-mainClr p-5 border-2 rounded-md w-1/4 text-center;
+  margin: 15% auto;
+}
+.modal .modalContent .closeBtn {
+  @apply flex justify-center items-center text-3xl float-right font-medium w-5 h-5;
+}
+.modal .modalContent .bets {
+  @apply flex flex-col justify-center items-center;
+}
+.modal .modalContent .bets h1 {
+  @apply border-b-2 p-1;
+}
+.modal .modalContent .bets h1 span {
+  @apply text-secondary;
+}
+.modal .modalContent .bets .depBtns {
+  @apply mt-3 w-3/4 flex flex-col;
+}
+.modal .modalContent .bets .depBtns button {
+  @apply border-2 border-mainTxtClr rounded-md p-1 text-secondary m-1;
+}
+
+@media screen and (max-width: 425px) {
+  .modal .modalContent {
+    @apply w-3/4;
+    margin: 40% auto;
+  }
+  .modal .modalContent .bets .depBtns {
+    @apply mt-1;
+  }
+}
+
+/*# sourceMappingURL=ModalBalance.module.css.map */

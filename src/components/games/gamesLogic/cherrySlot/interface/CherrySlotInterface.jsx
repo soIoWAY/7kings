@@ -1,5 +1,5 @@
 import styles from './CherrySlotInterface.module.scss'
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useActions} from "../../../../../hooks/useActions.js";
 import Controls from "../../../controls/Controls.jsx";
 import {useSelector} from "react-redux";
@@ -15,7 +15,8 @@ const CherrySlotInterface = () => {
 
     const { updateWins, updateLoses, updateBalance, cashOutBalance } = useActions();
 
-    const {balance} = useSelector(state => state)
+    const selectedBalance = state => state.balance
+    const {balance} = useSelector(selectedBalance)
 
     const fruits = ['💰', '🍒', '🍋', '🍏', '💣', '🍇']; // '💰', '🍒', '🍋', '🍏', '💣', '🍇'
 
@@ -43,7 +44,7 @@ const CherrySlotInterface = () => {
     }
 
     const updateFruits = () => {
-        if ((balance.balance - userBet) >= 0) {
+        if ((balance - userBet) >= 0) {
             setFruit1(fruits[randomFruit()])
             setFruit2(fruits[randomFruit()])
             setFruit3(fruits[randomFruit()])
@@ -102,7 +103,7 @@ const CherrySlotInterface = () => {
                     Start
                 </button>
             </div>
-            <Controls userBetHandler={userBetHandler} balance={balance.balance}/>
+            <Controls userBetHandler={userBetHandler} balance={balance}/>
         </div>
     )
 }

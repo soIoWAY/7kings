@@ -1,0 +1,44 @@
+.modal {
+  @apply block fixed z-10 left-0 top-0 w-full h-full text-mainTxtClr;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .modalContent {
+    @apply bg-mainClr p-5 border-2 rounded-md w-1/4 text-center;
+    margin: 15% auto;
+
+    .closeBtn {
+      @apply flex justify-center items-center text-3xl float-right font-medium w-5 h-5;
+    }
+
+    .bets {
+      @apply flex flex-col justify-center items-center;
+      h1 {
+        @apply border-b-2 p-1;
+        span {
+          @apply text-secondary;
+        }
+      }
+
+      .depBtns {
+        @apply mt-3 w-3/4 flex flex-col;
+        button {
+          @apply border-2 border-mainTxtClr rounded-md p-1 text-secondary m-1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .modal {
+    .modalContent {
+      @apply w-3/4;
+      margin: 40% auto;
+      .bets {
+        .depBtns {
+          @apply mt-1;
+        }
+      }
+    }
+  }
+}

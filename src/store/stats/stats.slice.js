@@ -1,8 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    wins: 0,
-    loses: 0
+    stats: {
+        wins: 0,
+        loses: 0
+    }
 }
 
 export const statsSlice = createSlice({
@@ -10,10 +12,10 @@ export const statsSlice = createSlice({
     initialState,
     reducers: {
         updateWins: (state) => {
-            state.wins += 1
+            state.stats.wins += 1
         },
         updateLoses: (state) => {
-            state.loses += 1
+            state.stats.loses += 1
         }
     }
 })

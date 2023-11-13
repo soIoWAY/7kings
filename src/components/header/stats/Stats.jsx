@@ -1,7 +1,9 @@
 import styles from './Stats.module.scss'
 import {useSelector} from "react-redux";
 const Stats = () => {
-    const {stats} = useSelector(state => state)
+    const selectedStats = state => state.stats
+    const {stats} = useSelector(selectedStats)
+    // ререндеринг
     return(
         <div className={styles.stats}>
             <div>
