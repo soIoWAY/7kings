@@ -21,7 +21,7 @@ const winGrapeBag = (Math.round((grapeX * grapeX) * bagX)) // 11
 const winLemonBag = (Math.round((lemonX * lemonX) * bagX)) // 9
 const winAppleBag = (Math.round((appleX * appleX) * bagX)) // 8
 
-const winFruit = 2.2
+const winFruit = 2
 
 
 export function checker(fruits, userBet, spansArray, setDisabled, updateBalance, updateWins, updateLoses, updateAnim, delayAnim, mixkitAward, payotAward, magicalWin) {
