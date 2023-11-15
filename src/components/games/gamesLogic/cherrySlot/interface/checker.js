@@ -6,7 +6,7 @@ const cherryX = 3
 const grapeX = 2.75
 const lemonX = 2.5
 const appleX = 2.25
-const bagX = 2
+const bagX = 1.5
 
 
 const extraWinCherry = (Math.round(cherryX * cherryX * cherryX)) // 27
@@ -14,12 +14,12 @@ const extraWinGrape = (Math.round(grapeX * grapeX * grapeX)) // 20
 const extraWinLemon = (Math.round(lemonX * lemonX * lemonX)) // 15
 const extraWinApple = (Math.round(appleX * appleX *appleX)) // 11
 
-const bagWin = (bagX * bagX * bagX) // 8
+const bagWin = (Math.round(bagX * bagX * bagX)) // 8
 
-const winCherryBag = (Math.round((cherryX * cherryX) * bagX)) // 20
-const winGrapeBag = (Math.round((grapeX * grapeX) * bagX)) // 16
-const winLemonBag = (Math.round((lemonX * lemonX) * bagX)) // 14
-const winAppleBag = (Math.round((appleX * appleX) * bagX)) // 11
+const winCherryBag = (Math.round((cherryX * cherryX) * bagX)) // 12
+const winGrapeBag = (Math.round((grapeX * grapeX) * bagX)) // 11
+const winLemonBag = (Math.round((lemonX * lemonX) * bagX)) // 9
+const winAppleBag = (Math.round((appleX * appleX) * bagX)) // 8
 
 const winFruit = 2.2
 

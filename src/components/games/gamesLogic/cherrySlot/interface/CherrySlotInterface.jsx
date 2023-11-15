@@ -1,5 +1,5 @@
 import styles from './CherrySlotInterface.module.scss'
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {useActions} from "../../../../../hooks/useActions.js";
 import Controls from "../../../controls/Controls.jsx";
 import {useSelector} from "react-redux";
