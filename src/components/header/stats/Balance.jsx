@@ -8,18 +8,14 @@ const Balance = () => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
-    function openModal() {
-        setIsOpen(true);
-    }
-
-    function closeModal() {
-        setIsOpen(false);
+    const closeOpenModal = () => {
+        setIsOpen(!modalIsOpen)
     }
 
     return(
         <div>
-            <div>Balance: <span>{balance}</span>₴ <span onClick={openModal}>+</span></div>
-            <ModalBalance modalIsOpen={modalIsOpen} closeModal={closeModal}/>
+            <div>Balance: <span>{balance}</span>₴ <span onClick={closeOpenModal}>+</span></div>
+            <ModalBalance modalIsOpen={modalIsOpen} closeModal={closeOpenModal}/>
         </div>
     )
 }
